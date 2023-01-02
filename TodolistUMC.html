@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .btn {
+            border: solid 1px black;
+            width: fit-content;
+            height: fit-content;
+            background-color: aqua;
+        }
+
+        .btn.center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .Rbottom {
+            position: absolute;
+            right: 0%;
+            bottom: 0%;
+        }
+
+        .todo {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .todo>div {
+            margin-right: 15px;
+        }
+
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <div class="btn center">중앙버튼</div>
+        <div class="btn Rbottom">우하단버튼</div> -->
+    <input id="todoinput" value="" />
+    <input id="tododate" type="date" value="" />
+    <button type="button" onclick="Mktodolist()">추가</button>
+
+    <div class="TodoContainer">
+        <div class="todolist">
+        </div>
+
+    </div>
+
+    <script>
+
+        // int a = 5;
+
+        // var 
+        const a = 5; //상수
+        let b = 6;
+        const c = [0, 1, 2];
+        const d = {
+            name: "chanwooJeong",
+            age: 20,
+            주소: "서울 동작구 상도동"
+        }
+
+        // a = 7;
+        b = 7;
+        d.age = 30;
+        d.heiht = 150;
+
+        console.log(a, b);
+        console.log(c[0], c[1], c[2])
+        console.log(d)
+        console.log(d.age)
+        console.log(d["age"])
+        console.log(d.heiht)
+
+        //함수선언방식
+        function todolist() {
+            console.log("im todolist")
+        }
+
+        const todo = [
+            {
+                work: "축구하기"
+                , deadline: "2023/01/01",
+                place: "종합운동장"
+            },
+            {
+                work: "수영하기"
+                , deadline: "2023/01/15",
+                place: "수영장"
+            },
+            {
+                work: "술먹기"
+                , deadline: "2023/02/30",
+                place: "강남술집"
+            },
+        ]
+
+        const Todo = document.querySelector(".todolist")
+
+        // const mkobj = (tag,id,List) =>{
+        //     const box = document.createElement(tag)
+        //     const content = document.querySelector(id)
+        //     box.value = content.value
+        //     box.readOnly = true
+        //     List.appendChild(box)
+        //     content.value =""
+        //  }
+
+        const Mktodolist = () => {
+            const obj = document.createElement("div")
+
+            const workbox = document.createElement("input")
+            const work = document.querySelector("#todoinput")
+            workbox.value = work.value
+            workbox.readOnly = true
+            workbox.disabled = true
+            obj.appendChild(workbox)
+
+            // mkobj("input","#todoinput",obj)
+
+            const datebox = document.createElement("input")
+            datebox.type = "date"
+            const date = document.querySelector("#tododate")
+            datebox.value = date.value
+            datebox.readOnly = true
+            datebox.disabled = true
+            obj.appendChild(datebox)
+
+            const editBtn = document.createElement("button")
+            editBtn.innerHTML = "수정"
+            editBtn.addEventListener("click", () => {
+                workbox.readOnly = (!workbox.readOnly)
+                datebox.readOnly = (!datebox.readOnly)
+                workbox.disabled = (!workbox.disabled)
+                datebox.disabled = (!datebox.disabled)
+                editBtn.innerHTML = (workbox.readOnly === true ? "수정" : "수정완료")
+            })
+            obj.appendChild(editBtn)
+
+            const deleteBtn = document.createElement("button")
+            deleteBtn.innerHTML = "삭제"
+            deleteBtn.addEventListener("click", () => {
+                Todo.removeChild(obj)
+            })
+            obj.appendChild(deleteBtn)
+
+            obj.style.display = "flex"
+            console.log(obj)
+
+            Todo.appendChild(obj)
+
+            date.value = ""
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

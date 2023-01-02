@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로지공부</title>
+    <style>
+        .active{
+            color: red;
+        }
+
+        .hover{
+            color: blue;
+        }
+
+        .container{
+            display: flex;
+            height: 200px;
+            width: 200px;
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 100%;
+        }
+       
+
+        .container .tag{
+            color: aqua;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- <div id="hello" class="active">Hello World!</div>
+    <div id="hello" class="active">Hello World2!</div>
+    <a href="https://opentutorials.org/course/1058">생활코딩바로가기</a>
+
+    html : 책의 내용
+    css : 디자인
+    javascript : 동적활동을 제공하는 그런 언어 -->
+
+    <div class="container">
+        <div class="tag">div 태그</div>
+        <div>div태그2</div>
+    </div>
+
+    <!-- 깨달았다 코딩 짜증난다 -->
+  
+
+    <!-- <span>span 태그 </span><spna>span2</spna> -->
+
+
+    <script>
+        var greeting = document.getElementById("hello")
+        console.log(greeting)
+
+        greeting.addEventListener('mouseover',()=>{
+            greeting.classList.add("hover")
+        })
+        
+        greeting.addEventListener('mouseout',()=>{
+            greeting.classList.remove("hover")
+        })
+
+        //
+
+        /* dadsfadfadfa*/
+
+    </script>
+</body>
+</html>
