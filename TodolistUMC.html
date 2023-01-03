@@ -49,7 +49,8 @@
         <div class="btn Rbottom">우하단버튼</div> -->
     <input id="todoinput" value="" />
     <input id="tododate" type="date" value="" />
-    <button type="button" onclick="Mktodolist()">추가</button>
+    <button type="addButton" onclick="Mktodolist()">추가</button>
+    <button type="resetButton" onclick="reset()">전체리셋</button>
 
     <div class="TodoContainer">
         <div class="todolist">
@@ -116,6 +117,11 @@
         //     List.appendChild(box)
         //     content.value =""
         //  }
+        const reset = () => {
+            while (Todo.hasChildNodes()) {
+                Todo.removeChild(Todo.firstChild);
+            }
+        }
 
         const Mktodolist = () => {
             const obj = document.createElement("div")
@@ -123,7 +129,6 @@
             const workbox = document.createElement("input")
             const work = document.querySelector("#todoinput")
             workbox.value = work.value
-            workbox.readOnly = true
             workbox.disabled = true
             obj.appendChild(workbox)
 
@@ -133,18 +138,15 @@
             datebox.type = "date"
             const date = document.querySelector("#tododate")
             datebox.value = date.value
-            datebox.readOnly = true
             datebox.disabled = true
             obj.appendChild(datebox)
 
             const editBtn = document.createElement("button")
             editBtn.innerHTML = "수정"
             editBtn.addEventListener("click", () => {
-                workbox.readOnly = (!workbox.readOnly)
-                datebox.readOnly = (!datebox.readOnly)
                 workbox.disabled = (!workbox.disabled)
                 datebox.disabled = (!datebox.disabled)
-                editBtn.innerHTML = (workbox.readOnly === true ? "수정" : "수정완료")
+                editBtn.innerHTML = (workbox.disabled === true ? "수정" : "수정완료")
             })
             obj.appendChild(editBtn)
 
@@ -159,7 +161,7 @@
             console.log(obj)
 
             Todo.appendChild(obj)
-
+            work.value = ""
             date.value = ""
         }
 
