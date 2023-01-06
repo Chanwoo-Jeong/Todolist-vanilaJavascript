@@ -1,0 +1,56 @@
+.btn {
+    border: solid 1px black;
+    width: fit-content;
+    height: fit-content;
+    background-color: aqua;
+}
+
+.btn.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Rbottom {
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+}
+
+.todo {
+    display: flex;
+    flex-direction: row;
+}
+
+.todo>div {
+    margin-right: 15px;
+}
+
+.active {
+    color: red;
+}
+
+.checkBox {
+    display: flex;
+    flex-direction: row;
+}
+
+input[type="checkbox"]+label {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url('./checkbox_off.png') no-repeat 0 0px / contain;
+}
+
+input[type='checkbox']:checked+label {
+    background: url('./checkbox_on.png') no-repeat 0 1px / contain;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+select option[value=""][disabled] {
+	display: none;
+}
