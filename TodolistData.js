@@ -1,19 +1,3 @@
-const TodoObj = {
-  Todo: "운동하기",
-  deadDate: "2023 / 01 / 08",
-  deadTime: " 13: 00",
-  Important: "4단계 vs 오늘 해야하는 일(안해도되는일)",
-  subTodo: {
-    work1: "줄넘기100개",
-    work2: "팔굽혀펴기",
-    work3: "숨쉬기운동",
-    work4: "턱걸이",
-    work5: "숨쉬기운동",
-    work6: "프로틴먹기",
-    work7: "짐볼운동하기",
-  },
-};
-
 let key = 0; // TodoList 를 key로 두어 차후 데이터 수정 및 삭제를 편하게 하기위해
 const TodoData = {}; // 객체로 구성 내부 데이터도 객체로 보관 json형식이 됌
 
